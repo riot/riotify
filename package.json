@@ -1,0 +1,22 @@
+{
+  "name": "riotify",
+  "version": "0.0.0",
+  "description": "browserify plugin for riot tag files",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jhthorsen/riotify.git"
+  },
+  "keywords": [
+    "browserify",
+    "module-deps"
+  ],
+  "author": "Jan Henning Thorsen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jhthorsen/riotify/issues"
+  }
+}
