@@ -1,3 +1,6 @@
+[![Build
+Status](https://travis-ci.org/jhthorsen/riotify.svg)](https://travis-ci.org/jhthorsen/riotify)
+
 # riotify
 
 "riotify" is a browserify processor for [riot](https://muut.com/riotjs) tag files.
