@@ -1,5 +1,5 @@
 var through = require('through');
-var riotCompiler = require('riot/compiler/compiler');
+var riot = require('riot');
 
 module.exports = function (file, o) {
   var opts = o;
@@ -10,7 +10,7 @@ module.exports = function (file, o) {
       content += chunk.toString();
     },
     function () { // end
-      this.queue(riotCompiler.compile(content, opts));
+      this.queue(riot.compile(content, opts));
       this.emit('end');
     }
   );
