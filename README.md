@@ -3,7 +3,7 @@ Status](https://travis-ci.org/jhthorsen/riotify.svg)](https://travis-ci.org/jhth
 
 # riotify
 
-"riotify" is a browserify processor for [riot](https://muut.com/riotjs) tag files.
+"riotify" is a browserify transformer for [riot](https://muut.com/riotjs) tag files.
 
 ## Installation
 
