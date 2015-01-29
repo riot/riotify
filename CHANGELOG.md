@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.0.4
+
+  * Will require('riot') from inside tag definition
+    Contributor: Derek Reynolds
+
 ## 0.0.3
 
   * Compatible with Riot 2.0.7

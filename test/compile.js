@@ -28,10 +28,13 @@ test('compile', function (t) {
   p.write({ file: file, id: file, entry: true });
   p.end();
 
-  t.plan(3);
+  t.plan(6);
   p.pipe(concat(function (out) {
-    t.ok(out[0], 'got output element');
-    t.ok(out[0].source.length, 'got output element with source');
-    t.ok(out[0].source.match(/^riot.tag\(.*todo/), 'compiled compile.tag');
+    t.is(out.length, 2, 'got two files as output');
+    t.ok(out[0].id.match(/riot\.js$/), 'out.0 is riot.js');
+    t.ok(out[0].source.match(/module.exports/), 'riot.js');
+    t.ok(out[1].id.match(/todo\.tag$/), 'out.1 is todo.tag');
+    t.ok(out[1].source.match(/var riot = require\('riot'\);/), 'require riot');
+    t.ok(out[1].source.match(/riot.tag\(.*todo/), 'compiled compile.tag');
   }));
 });
