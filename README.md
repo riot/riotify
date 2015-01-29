@@ -28,6 +28,7 @@ This module is meant to be used together with
 
 Example `app.js`:
 
+    var riot = require('riot')
     require('./todo.tag')
     riot.mount('todo')
 
