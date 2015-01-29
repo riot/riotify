@@ -5,14 +5,6 @@ Status](https://travis-ci.org/jhthorsen/riotify.svg)](https://travis-ci.org/jhth
 
 "riotify" is a browserify processor for [riot](https://muut.com/riotjs) tag files.
 
-## DISCLAIMER
-
-It is currently not possible to use "riot" with browserify. Loading ".tag"
-files using `require()` will not return the tag, but simple register them
-in the global `riot` object.
-
-See [issue#139](https://github.com/muut/riotjs/issues/139) for more details.
-
 ## Installation
 
     npm install riotify
