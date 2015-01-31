@@ -3,7 +3,7 @@ Status](https://travis-ci.org/jhthorsen/riotify.svg)](https://travis-ci.org/jhth
 
 # riotify
 
-"riotify" is a browserify transformer for [riot](https://muut.com/riotjs) tag files.
+"riotify" is a browserify transformer for [riot](https://muut.com/riotjs) ".tag" files.
 
 ## Installation
 
@@ -15,8 +15,10 @@ This module is meant to be used together with
 [browserify](http://browserify.org) or
 [module-deps](https://github.com/substack/module-deps):
 
+Either of the two commands below result creates the same result:
+
     browserify -t riotify app.js
-    module-deps -t riotify test/todo.tag | browser-pack
+    module-deps -t riotify app.js | browser-pack
 
 Example `app.js`:
 
@@ -33,6 +35,8 @@ Example `todo.tag`:
 
       this.items = [ { title: 'First' }, { title: 'Second' } ]
     </todo>
+
+Note that your tag files actually need to have the extension ".tag".
 
 ## Tests
 
