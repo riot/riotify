@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 0.0.7
+
+  * Add an explanation of compile options
+
+## 0.0.6
+
+  * Documentation fixes
+
+## 0.0.5
+
+  * Remove DISCLAIMER from README
+
 ## 0.0.4
 
   * Will require('riot') from inside tag definition
