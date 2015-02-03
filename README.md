@@ -38,6 +38,38 @@ Example `todo.tag`:
 
 Note that your tag files actually need to have the extension ".tag".
 
+### Compile Options
+
+This plugin can give riot's compile options.
+
+    % browserify -t [ riotify --type coffeescript --template jade ] app.js
+
+You can also configure it in package.json
+
+```json
+{
+    "name": "my-package",
+    "browserify": {
+        "transform": [
+            [ "riotify", {"type": "coffeescript", "template": "jade" } ],
+        ]
+    }
+}
+```
+
+#### Available option
+
+* compact: `Boolean`
+  * Minify `</p> <p>` to `</p><p>`
+* expr: `Boolean`
+  * Run expressions trough parser defined with `--type`
+* type: `String, coffeescript | cs | es6 | none`
+  * JavaScript pre-processor
+* template: `String, jade`
+  * HTML pre-processor
+
+See more: https://muut.com/riotjs/compiler.html
+
 ## Tests
 
     npm test
