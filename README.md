@@ -70,6 +70,47 @@ You can also configure it in package.json
 
 See more: https://muut.com/riotjs/compiler.html
 
+### With gulp.js
+
+for JavaScript
+
+```javascript
+var gulp       = require('gulp');
+var browserify = require('browserify');
+var riotify    = require('riotify');
+var source     = require('vinyl-source-stream');
+
+gulp.task('browserify', function(){
+  browserify({ entries: ['src/app.js'] })
+  .transform(riotify)
+  .bundle()
+  .pipe(source('app.js'))
+  .pipe(gulp.dest('dist/'))
+});
+```
+
+for CoffeeScript
+
+```coffeescript
+gulp       = require 'gulp'
+browserify = require 'browserify'
+coffeeify  = require 'coffeeify'
+riotify    = require 'riotify'
+source     = require 'vinyl-source-stream'
+
+gulp.task 'browserify', ->
+  browserify
+    entries:    ['src/app.coffee']
+    extensions: ['.coffee', '.js']
+  .transform coffeeify
+  .transform riotify, type: 'coffeescript'
+  .bundle()
+  .pipe source 'app.js'
+  .pipe gulp.dest 'dist/'
+```
+
+These are the simplest cases. `uglify` and `sourcemaps` would be needed.
+
 ## Tests
 
     npm test
