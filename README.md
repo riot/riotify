@@ -70,6 +70,25 @@ You can also configure it in package.json
 
 See more: https://muut.com/riotjs/compiler.html
 
+### With gulp.js
+
+```javascript
+var gulp       = require('gulp');
+var browserify = require('browserify');
+var riotify    = require('riotify');
+var source     = require('vinyl-source-stream');
+
+gulp.task('browserify', function(){
+  browserify({ entries: ['src/app.js'] })
+  .transform(riotify, { template: 'jade' }) // pass options if you need
+  .bundle()
+  .pipe(source('app.js'))
+  .pipe(gulp.dest('dist/'))
+});
+```
+
+These are the simplest cases. `uglify` and `sourcemaps` would be needed.
+
 ## Tests
 
     npm test
