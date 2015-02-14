@@ -21,6 +21,7 @@
   },
   "keywords": [
     "browserify",
+    "browserify-transform",
     "module-deps"
   ],
   "author": "Jan Henning Thorsen",
