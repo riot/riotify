@@ -67,6 +67,8 @@ You can also configure it in package.json
   * JavaScript pre-processor
 * template: `String, jade`
   * HTML pre-processor
+* skipStyle: `Boolean`
+  * compile without `<style>...</style>`
 
 See more: https://muut.com/riotjs/compiler.html
 
