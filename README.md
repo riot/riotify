@@ -67,6 +67,8 @@ You can also configure it in package.json
   * JavaScript pre-processor
 * template: `String, jade`
   * HTML pre-processor
+* ext: `String`
+  * custom extension, you’re free to use any file extension for your tags (instead of default .tag):
 
 See more: https://muut.com/riotjs/compiler.html
 

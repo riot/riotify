@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.0.9
+
+  * Add custom extension support
+
+## 0.0.8
+
+  * Compatible with Riot 2.0.9
+
 ## 0.0.7
 
   * Add an explanation of compile options
