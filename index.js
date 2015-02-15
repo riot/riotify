@@ -12,7 +12,17 @@ module.exports = function (file, o) {
       content += chunk.toString();
     },
     function () { // end
-      this.queue(preamble + riot.compile(content, opts));
+      content = riot.compile(content, opts);
+
+      if (opts.exports) {
+        content = content.replace(/riot\.tag\(/, 'var _X=[');
+        content = content.replace(/\);?\s*$/, '];_X.name=_X[0];module.exports=_X');
+      }
+      else {
+        content = preamble + content;
+      }
+
+      this.queue(content);
       this.emit('end');
     }
   );
