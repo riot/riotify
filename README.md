@@ -23,8 +23,8 @@ Either of the two commands below result creates the same result:
 Example `app.js`:
 
     var riot = require('riot')
-    require('./todo.tag')
-    riot.mount('todo')
+    var todo = require('./todo.tag')
+    riot.mount(todo)
 
 Example `todo.tag`:
 

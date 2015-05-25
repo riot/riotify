@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.1.0
+
+  * Add support for returning tag on require("file.tag")
+    https://github.com/jhthorsen/riotify/pull/15
+  * Fix default value when no options are given
+    https://github.com/jhthorsen/riotify/pull/15
+
 ## 0.0.9
 
   * Add custom extension support
