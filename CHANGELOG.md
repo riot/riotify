@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.1.1
+
+  * Compatible with Riot 2.1.0
+  * Emit error event on compile error
+    https://github.com/jhthorsen/riotify/pull/16
+
 ## 0.1.0
 
   * Add support for returning tag on require("file.tag")
