@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.2
+
+  * Will emit error event on compile error
+
 ## 0.1.1
 
   * Compatible with Riot 2.1.0
