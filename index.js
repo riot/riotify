@@ -12,8 +12,12 @@ module.exports = function (file, o) {
       content += chunk.toString();
     },
     function () { // end
-      this.queue(preamble + 'module.exports = ' + riot.compile(content, opts));
-      this.emit('end');
+      try {
+        this.queue(preamble + 'module.exports = ' + riot.compile(content, opts));
+        this.emit('end');
+      } catch (e) {
+        this.emit('error', e);
+      }
     }
   );
 };
