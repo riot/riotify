@@ -32,8 +32,10 @@ Example `todo.tag`:
       <div each={ items }>
         <h3>{ title }</h3>
       </div>
-
-      this.items = [ { title: 'First' }, { title: 'Second' } ]
+      
+      // a tag file can contain any JavaScript, even require()
+      var resources = require('../resources.json')    
+      this.items = [ { title: resources.en.first }, { title: resources.en.second } ]
     </todo>
 
 Note that your tag files actually need to have the extension ".tag".
