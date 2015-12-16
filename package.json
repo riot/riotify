@@ -4,7 +4,7 @@
   "description": "browserify plugin for riot tag files",
   "main": "index.js",
   "dependencies": {
-    "riot": "^2.1.0",
+    "riot": "^2.3.0",
     "through": "^2.3.0"
   },
   "devDependencies": {
