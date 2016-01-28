@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.0.0
+
+  * Compatible with Riot 2.3.0
+  * Not compatible with lower version of Riot
+
 ## 0.1.2
 
   * Compatible with Riot 2.1.0
