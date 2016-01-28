@@ -35,7 +35,7 @@ test('compile', function (t) {
     t.ok(out[0].source.match(/module.exports/), 'riot.js');
     t.ok(out[1].id.match(/todo\.tag$/), 'out.1 is todo.tag');
     t.ok(out[1].source.match(/var riot = require\('riot'\);/), 'require riot');
-    t.ok(out[1].source.match(/riot.tag\(.*todo/), 'compiled compile.tag');
+    t.ok(out[1].source.match(/riot.tag2\(.*todo/), 'compiled compile.tag');
   }));
 });
 
@@ -54,7 +54,7 @@ test('compile-custom-ext', function (t) {
     t.ok(out[0].source.match(/module.exports/), 'riot.js');
     t.ok(out[1].id.match(/customext\.html$/), 'out.1 is customext.html');
     t.ok(out[1].source.match(/var riot = require\('riot'\);/), 'require riot');
-    t.ok(out[1].source.match(/riot.tag\(.*customext/), 'compiled compile.tag');
+    t.ok(out[1].source.match(/riot.tag2\(.*customext/), 'compiled compile.tag');
   }));
 });
 
@@ -84,6 +84,6 @@ test('module exports riot tag', function (t) {
 
   t.plan(1);
   p.pipe(concat(function (out) {
-    t.ok(out[1].source.match(/module.exports = riot.tag/), 'riot tag');
+    t.ok(out[1].source.match(/module.exports = riot.tag2/), 'riot tag');
   }));
 });
