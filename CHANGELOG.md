@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.1
+
+  * Passing the file name to the riot compiler #30
+
 ## 1.0.0
 
   * Compatible with Riot 2.3.0
