@@ -13,7 +13,7 @@ module.exports = function (file, o) {
     },
     function () { // end
       try {
-        this.queue(preamble + 'module.exports = ' + riot.compile(content, opts, file));
+        this.queue((opts.preamble || preamble) + 'module.exports = ' + riot.compile(content, opts, file));
         this.emit('end');
       } catch (e) {
         this.emit('error', e);

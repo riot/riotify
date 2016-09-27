@@ -87,3 +87,18 @@ test('module exports riot tag', function (t) {
     t.ok(out[1].source.match(/module.exports = riot.tag2/), 'riot tag');
   }));
 });
+
+test('custom preamble', function (t) {
+  var file = path.join(__dirname, 'todo.tag');
+  var p = moduleDeps();
+
+  p.write({ transform: riotify, options: {preamble: 'custom-preamble;'} });
+  p.write({ file: file, id: file, entry: true });
+  p.end();
+
+  t.plan(1);
+  p.pipe(concat(function (out) {
+    t.ok(out[0].source.match(/^custom-preamble;/), 'custom preamble');
+  }));
+});
+
