@@ -1,23 +1,33 @@
 {
   "name": "riotify",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "browserify plugin for riot tag files",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "dependencies": {
-    "riot": "^2.3.0",
-    "through": "^2.3.0"
+    "through": "^2.3.8"
   },
   "devDependencies": {
-    "concat-stream": "^1.4.0",
-    "module-deps": "^3.6.0",
-    "tape": "^2.12.1"
+    "concat-stream": "^1.5.2",
+    "eslint": "^3.10.2",
+    "module-deps": "^4.0.8",
+    "tape": "^4.6.3",
+    "riot": "^3.0.0",
+    "riot-compiler": "^3.0.0"
+  },
+  "peerDependencies": {
+    "riot-compiler": "^3.0.0"
   },
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "npm run eslint && npm run tape",
+    "tape": "tape test/*.js",
+    "eslint": "eslint index.js test/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jhthorsen/riotify.git"
+    "url": "https://github.com/riot/riotify.git"
   },
   "keywords": [
     "browserify",
@@ -27,6 +37,6 @@
   "author": "Jan Henning Thorsen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jhthorsen/riotify/issues"
+    "url": "https://github.com/riot/riotify/issues"
   }
 }

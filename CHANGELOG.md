@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2.0.0
+
+  * Compatible with Riot 3.0.0
+  * Moved to Riot organization
+  * Make riot-compiler a peerDependency
+  * Add eslint
+
 ## 1.0.1
 
   * Passing the file name to the riot compiler #30

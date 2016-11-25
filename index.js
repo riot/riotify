@@ -1,23 +1,26 @@
-var through = require('through');
-var riot = require('riot');
-var preamble = "var riot = require('riot');\n";
+'use strict'
+
+const through = require('through')
+const compiler = require('riot-compiler')
+const preamble = "var riot = require('riot');\n"
 
 module.exports = function (file, o) {
-  var opts = o || {};
-  var ext = opts.ext || 'tag';
-  var content = '';
+  const opts = o || {}
+  const ext = opts.ext || 'tag'
+  let content = ''
 
-  return !file.match('\.' + ext + '$') ? through() : through(
+  return !file.match(`\.${ ext }$`) ? through() : through(
     function (chunk) { // write
-      content += chunk.toString();
+      content += chunk.toString()
     },
     function () { // end
       try {
-        this.queue(preamble + 'module.exports = ' + riot.compile(content, opts, file));
-        this.emit('end');
+        const compiled = compiler.compile(content, opts, file)
+        this.queue(`${ preamble }module.exports = ${ compiled }`)
+        this.emit('end')
       } catch (e) {
-        this.emit('error', e);
+        this.emit('error', e)
       }
     }
-  );
-};
+  )
+}
