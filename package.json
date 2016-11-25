@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jhthorsen/riotify.git"
+    "url": "https://github.com/riot/riotify.git"
   },
   "keywords": [
     "browserify",
@@ -30,6 +30,6 @@
   "author": "Jan Henning Thorsen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jhthorsen/riotify/issues"
+    "url": "https://github.com/riot/riotify/issues"
   }
 }
