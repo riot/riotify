@@ -3,6 +3,9 @@
   "version": "1.0.1",
   "description": "browserify plugin for riot tag files",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "dependencies": {
     "through": "^2.3.8"
   },
