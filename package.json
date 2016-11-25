@@ -9,11 +9,14 @@
   },
   "devDependencies": {
     "concat-stream": "^1.4.0",
+    "eslint": "^3.10.2",
     "module-deps": "^3.6.0",
     "tape": "^2.12.1"
   },
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "npm run eslint && npm run tape",
+    "tape": "tape test/*.js",
+    "eslint": "eslint index.js test/*.js"
   },
   "repository": {
     "type": "git",

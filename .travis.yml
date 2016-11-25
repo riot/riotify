@@ -1,9 +1,5 @@
----
 language: node_js
 node_js:
-- '0.10'
-script:
-  - npm install
-  - npm test
+  - '4.*'
 notifications:
   email: false
