@@ -1,5 +1,5 @@
 [![Build
-Status](https://travis-ci.org/jhthorsen/riotify.svg)](https://travis-ci.org/jhthorsen/riotify)
+Status](https://travis-ci.org/riot/riotify.svg)](https://travis-ci.org/riot/riotify)
 
 # riotify
 
@@ -7,7 +7,9 @@ Status](https://travis-ci.org/jhthorsen/riotify.svg)](https://travis-ci.org/jhth
 
 ## Installation
 
-    npm install riotify
+```bash
+$ npm install riotify
+```
 
 ## Usage
 
@@ -17,26 +19,32 @@ This module is meant to be used together with
 
 Either of the two commands below result creates the same result:
 
-    browserify -t riotify app.js
-    module-deps -t riotify app.js | browser-pack
+```bash
+$ browserify -t riotify app.js
+$ module-deps -t riotify app.js | browser-pack
+```
 
 Example `app.js`:
 
-    var riot = require('riot')
-    var todo = require('./todo.tag')
-    riot.mount(todo)
+```javascript
+var riot = require('riot')
+var todo = require('./todo.tag')
+riot.mount(todo)
+```
 
 Example `todo.tag`:
 
-    <todo>
-      <div each={ items }>
-        <h3>{ title }</h3>
-      </div>
-      
-      // a tag file can contain any JavaScript, even require()
-      var resources = require('../resources.json')    
-      this.items = [ { title: resources.en.first }, { title: resources.en.second } ]
-    </todo>
+```html
+<todo>
+  <div each={ items }>
+    <h3>{ title }</h3>
+  </div>
+
+  // a tag file can contain any JavaScript, even require()
+  var resources = require('../resources.json')    
+  this.items = [ { title: resources.en.first }, { title: resources.en.second } ]
+</todo>
+```
 
 Note that your tag files actually need to have the extension ".tag".
 
@@ -44,7 +52,9 @@ Note that your tag files actually need to have the extension ".tag".
 
 This plugin can give riot's compile options.
 
-    % browserify -t [ riotify --type coffeescript --template jade ] app.js
+```bash
+$ browserify -t [ riotify --type coffeescript --template jade ] app.js
+```
 
 You can also configure it in package.json
 
@@ -61,16 +71,16 @@ You can also configure it in package.json
 
 #### Available option
 
-* compact: `Boolean`
-  * Minify `</p> <p>` to `</p><p>`
-* expr: `Boolean`
-  * Run expressions trough parser defined with `--type`
-* type: `String, coffeescript | cs | es6 | none`
-  * JavaScript pre-processor
-* template: `String, jade`
-  * HTML pre-processor
-* ext: `String`
-  * custom extension, you’re free to use any file extension for your tags (instead of default .tag):
+- compact: `Boolean`
+  - Minify `</p> <p>` to `</p><p>`
+- expr: `Boolean`
+  - Run expressions trough parser defined with `--type`
+- type: `String, coffeescript | cs | es6 | none`
+  - JavaScript pre-processor
+- template: `String, jade`
+  - HTML pre-processor
+- ext: `String`
+  - custom extension, you’re free to use any file extension for your tags (instead of default .tag):
 
 See more: https://muut.com/riotjs/compiler.html
 
@@ -95,7 +105,9 @@ These are the simplest cases. `uglify` and `sourcemaps` would be needed.
 
 ## Tests
 
-    npm test
+```bash
+$ npm test
+```
 
 ## Author
 
