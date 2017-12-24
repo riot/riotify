@@ -3,7 +3,7 @@ Status](https://travis-ci.org/riot/riotify.svg)](https://travis-ci.org/riot/riot
 
 # riotify
 
-"riotify" is a browserify transformer for [riot](https://muut.com/riotjs) ".tag" files.
+"riotify" is a browserify transformer for [riot](https://github.com/riot/riot) ".tag" files.
 
 ## Installation
 
@@ -41,7 +41,7 @@ Example `todo.tag`:
   </div>
 
   // a tag file can contain any JavaScript, even require()
-  var resources = require('../resources.json')    
+  var resources = require('../resources.json')
   this.items = [ { title: resources.en.first }, { title: resources.en.second } ]
 </todo>
 ```
@@ -82,7 +82,7 @@ You can also configure it in package.json
 - ext: `String`
   - custom extension, you’re free to use any file extension for your tags (instead of default .tag):
 
-See more: https://muut.com/riotjs/compiler.html
+See more: https://github.com/riot/compiler
 
 ### With gulp.js
 
