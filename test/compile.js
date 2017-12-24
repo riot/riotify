@@ -32,7 +32,7 @@ test('compile', t => {
   p.pipe(concat(out => {
     t.is(out.length, 2, 'got two files as output')
     t.ok(/riot\.js$/.test(out[0].id), 'out.0 is riot.js')
-    t.ok(/RIOT_TAG_IS/.test(out[0].source), 'riot.js')
+    t.ok(/IS_DIRECTIVE/.test(out[0].source), 'riot.js')
     t.ok(/todo\.tag$/.test(out[1].id), 'out.1 is todo.tag')
     t.ok(/var riot = require\('riot'\);/.test(out[1].source), 'require riot')
     t.ok(/riot\.tag2\(.*todo/.test(out[1].source), 'compiled compile.tag')
@@ -51,7 +51,7 @@ test('compile-custom-ext', t => {
   p.pipe(concat(out => {
     t.is(out.length, 2, 'got two files as output')
     t.ok(/riot\.js$/.test(out[0].id), 'out.0 is riot.js')
-    t.ok(/RIOT_TAG_IS/.test(out[0].source), 'riot.js')
+    t.ok(/IS_DIRECTIVE/.test(out[0].source), 'riot.js')
     t.ok(/customext\.html$/.test(out[1].id), 'out.1 is customext.html')
     t.ok(/var riot = require\('riot'\);/.test(out[1].source), 'require riot')
     t.ok(/riot.tag2\(.*customext/.test(out[1].source), 'compiled compile.tag')

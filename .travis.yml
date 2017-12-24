@@ -1,5 +1,12 @@
 language: node_js
 node_js:
-  - '4.*'
+  - 8
+
+sudo: false
+
+install:
+  - npm install riot-compiler riot
+  - npm i
+
 notifications:
-  email: false
+email: false
