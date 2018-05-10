@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.0.0
+
+  * Add sourcemaps support
+  * Remove `riot` and `riot-compiler` as dependencies
+
 ## 2.0.0
 
   * Compatible with Riot 3.0.0
