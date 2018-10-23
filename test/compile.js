@@ -87,3 +87,32 @@ test('module exports riot tag', t => {
     t.ok(/module.exports = riot.tag2/.test(out[1].source), 'riot tag')
   }))
 })
+
+test('force sourcemaps', t => {
+  const file = path.join(__dirname, 'todo.tag')
+  const p = moduleDeps()
+
+  p.write({ transform: riotify, options: { sourceMaps: true } })
+  p.write({ file, id: file, entry: true })
+  p.end()
+
+  t.plan(1)
+  p.pipe(concat(out => {
+    t.ok(/\/\/# sourceMappingURL=/.test(out[1].source), 'sourcemaps comment')
+  }))
+})
+
+test('disable sourcemaps', t => {
+  const file = path.join(__dirname, 'todo.tag')
+  const p = moduleDeps()
+
+  p.write({ transform: riotify, options: { sourceMaps: false } })
+  p.write({ file, id: file, entry: true })
+  p.end()
+
+  t.plan(1)
+  p.pipe(concat(out => {
+    t.notOk(/\/\/# sourceMappingURL=/.test(out[1].source), 'no sourcemaps comment')
+  }))
+})
+

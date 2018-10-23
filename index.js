@@ -7,8 +7,9 @@ const preamble = "var riot = require('riot');\n"
 module.exports = function riotify (file, o) {
   const opts = o || {}
   const ext = opts.ext || 'tag'
+  const enableSourceMaps = typeof opts.sourceMaps === 'boolean' ? opts.sourceMaps : opts._flags.debug
 
-  opts.sourcemap = opts._flags.debug ? 'inline' : false
+  opts.sourcemap = enableSourceMaps ? 'inline' : false
 
   let content = ''
 
