@@ -13,7 +13,7 @@ module.exports = function riotify (file, o) {
 
   let content = ''
 
-  return !file.match(`\.${ ext }$`) ? through() : through(
+  return !file.match(`.${ ext }$`) ? through() : through(
     function (chunk) { // write
       content += chunk.toString()
     },
