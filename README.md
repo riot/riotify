@@ -81,8 +81,8 @@ You can also configure it in package.json
   - HTML pre-processor
 - ext: `String`
   - custom extension, you’re free to use any file extension for your tags (instead of default .tag):
-- sourceMaps: `Boolean`
-  - by default, whether to generate sourcemaps depends on the `debug` flag set in browserify, this flag overrides it
+- sourcemap: `Boolean`
+  - by default, whether to generate a sourcemap depends on the `debug` flag set in browserify, this flag overrides it
 
 See more: https://github.com/riot/compiler
 

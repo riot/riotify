@@ -88,11 +88,11 @@ test('module exports riot tag', t => {
   }))
 })
 
-test('force sourcemaps', t => {
+test('force sourcemap', t => {
   const file = path.join(__dirname, 'todo.tag')
   const p = moduleDeps()
 
-  p.write({ transform: riotify, options: { sourceMaps: true } })
+  p.write({ transform: riotify, options: { sourcemap: true } })
   p.write({ file, id: file, entry: true })
   p.end()
 
@@ -102,11 +102,11 @@ test('force sourcemaps', t => {
   }))
 })
 
-test('disable sourcemaps', t => {
+test('disable sourcemap', t => {
   const file = path.join(__dirname, 'todo.tag')
   const p = moduleDeps()
 
-  p.write({ transform: riotify, options: { sourceMaps: false } })
+  p.write({ transform: riotify, options: { sourcemap: false } })
   p.write({ file, id: file, entry: true })
   p.end()
 

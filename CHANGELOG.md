@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.1.0
+  * Make the sourcemap generation optional through the `sourcemap` boolean option #41
+
 ## 3.0.0
 
   * Add sourcemaps support
