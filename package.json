@@ -7,6 +7,8 @@
     "index.js"
   ],
   "dependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
     "through": "^2.3.8"
   },
   "devDependencies": {

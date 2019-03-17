@@ -32,7 +32,7 @@ describe('riotify', () => {
 
     p.pipe(concat(out => {
       expect(out).to.have.length(1)
-      expect(/export default/.test(out[0].source)).to.be.ok
+      expect(/var _default = {/.test(out[0].source)).to.be.ok
       done()
     }))
   })
@@ -48,7 +48,7 @@ describe('riotify', () => {
     p.pipe(concat(out => {
       expect(out).to.have.length(1)
       expect(/customext\.html$/.test(out[0].id), 'out.1 is customext.html').to.be.ok
-      expect(/export default/.test(out[0].source)).to.be.ok
+      expect(/var _default = {/.test(out[0].source)).to.be.ok
       done()
     }))
   })
@@ -78,7 +78,7 @@ describe('riotify', () => {
     p.end()
 
     p.pipe(concat(out => {
-      expect(/export default/.test(out[0].source)).to.be.ok
+      expect(/var _default = {/.test(out[0].source)).to.be.ok
       done()
     }))
   })

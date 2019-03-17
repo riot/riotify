@@ -1,9 +1,7 @@
 const through = require('through')
+const { transformSync } = require('@babel/core')
+const pluginCJS = require('@babel/plugin-transform-modules-commonjs')
 const { compile } = require('@riotjs/compiler')
-
-function inlineSourcemap(map) {
-  return `\n//# sourceMappingURL=${Buffer.from(JSON.stringify(map)).toString('base64')}`
-}
 
 module.exports = function riotify(file, o) {
   const opts = o || {}
@@ -13,10 +11,18 @@ module.exports = function riotify(file, o) {
 
   return !file.match(`.${ext}$`) ? through() : through(
     chunk => content.push(chunk.toString()),
-    function() { // end
+    function() {
       try {
-        const { code, map } = compile(content.join(''), {...opts, file})
-        this.queue(`${code}${enableSourceMap ? inlineSourcemap(map) : ''}`)
+        const result = compile(content.join(''), {...opts, file})
+        const { code } = transformSync(result.code, {
+          inputSourceMap: result.map,
+          sourceMaps: enableSourceMap ? 'inline' : false,
+          babelrc: false,
+          filename: file,
+          plugins: [pluginCJS]
+        })
+
+        this.queue(code)
         this.emit('end')
       } catch (e) {
         this.emit('error', e)
