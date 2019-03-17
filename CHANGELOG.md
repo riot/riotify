@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 4.0.0-beta.1
+  * Add first riot@4 compatible API
+
 ## 3.1.0
   * Make the sourcemap generation optional through the `sourcemap` boolean option #41
 

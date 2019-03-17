@@ -108,5 +108,5 @@ $ npm test
 
 ## Author
 
-Originally written by Jan Henning Thorsen - jhthorsen@cpan.org
+Originally written by Jan Henning Thorsen - jhthorsen@cpan.org<br/>
 Maintained by Gianluca Guarini - gianluca.guarini@gmail.com
