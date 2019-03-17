@@ -10,18 +10,22 @@
     "through": "^2.3.8"
   },
   "devDependencies": {
-    "concat-stream": "^1.6.2",
-    "eslint": "^5.9.0",
+    "chai": "^4.2.0",
+    "concat-stream": "^2.0.0",
+    "eslint": "^5.15.2",
+    "eslint-config-riot": "^2.0.0",
+    "mocha": "^6.0.2",
     "module-deps": "^6.2.0",
-    "tape": "^4.9.1"
+    "tape": "^4.10.1"
   },
   "peerDependencies": {
-    "riot-compiler": "^3.4.0"
+    "@riotjs/compiler": "^4.0.0-beta.1"
   },
   "scripts": {
-    "test": "npm run eslint && npm run tape",
-    "tape": "tape test/*.js",
-    "eslint": "eslint index.js test/*.js"
+    "test": "npm run eslint && npx mocha test/*.js",
+    "prepare": "npm i --no-save @riotjs/compiler@4.0.0-beta.1",
+    "eslint": "eslint index.js test/*.js",
+    "prepublishOnly": "npm test"
   },
   "repository": {
     "type": "git",

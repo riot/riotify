@@ -1,118 +1,115 @@
-const test = require('tape')
+const { expect } = require('chai')
 const concat = require('concat-stream')
 const moduleDeps = require('module-deps')
 const path = require('path')
 const riotify = require('../')
 
-test('ignore', t => {
-  const file = path.join(__dirname, 'ignore.ext')
-  const p = moduleDeps()
 
-  p.write({ transform: riotify, options: {} })
-  p.write({ file, id: file, entry: true })
-  p.end()
+describe('riotify', () => {
+  it('ignore', (done) => {
+    const file = path.join(__dirname, 'ignore.ext')
+    const p = moduleDeps()
 
-  t.plan(3)
-  p.pipe(concat(out => {
-    t.ok(out[0], 'got output element')
-    t.ok(out[0].source.length, 'got output element with source')
-    t.ok(/^<todo>/.test(out[0].source), 'skipped ignore.ext')
-  }))
+    p.write({ transform: riotify, options: {} })
+    p.write({ file, id: file, entry: true })
+    p.end()
+
+    p.pipe(concat(out => {
+      expect(out[0], 'got output element').to.be.ok
+      expect(out[0].source.length, 'got output element with source').to.be.ok
+      expect(/^<todo>/.test(out[0].source), 'skipped ignore.ext').to.be.ok
+      done()
+    }))
+  })
+
+  it('compile', (done) => {
+    const file = path.join(__dirname, 'todo.riot')
+    const p = moduleDeps()
+
+    p.write({ transform: riotify, options: {} })
+    p.write({ file, id: file, entry: true })
+    p.end()
+
+    p.pipe(concat(out => {
+      expect(out).to.have.length(1)
+      expect(/export default/.test(out[0].source)).to.be.ok
+      done()
+    }))
+  })
+
+  it('compile-custom-ext', (done) => {
+    const file = path.join(__dirname, 'customext.html')
+    const p = moduleDeps()
+
+    p.write({ transform: riotify, options: {ext: 'html'} })
+    p.write({ file, id: file, entry: true })
+    p.end()
+
+    p.pipe(concat(out => {
+      expect(out).to.have.length(1)
+      expect(/customext\.html$/.test(out[0].id), 'out.1 is customext.html').to.be.ok
+      expect(/export default/.test(out[0].source)).to.be.ok
+      done()
+    }))
+  })
+
+  it('compile-custom-ext-ignore', (done) => {
+    const file = path.join(__dirname, 'todo.riot')
+    const p = moduleDeps()
+
+    p.write({ transform: riotify, options: {ext: 'html'} })
+    p.write({ file, id: file, entry: true })
+    p.end()
+
+    p.pipe(concat(out => {
+      expect(out[0], 'got output element').to.be.ok
+      expect(out[0].source.length, 'got output element with source').to.be.ok
+      expect(/^<todo>/.test(out[0].source), 'skipped todo.riot').to.be.ok
+      done()
+    }))
+  })
+
+  it('module exports riot tag', (done) => {
+    const file = path.join(__dirname, 'todo.riot')
+    const p = moduleDeps()
+
+    p.write({ transform: riotify })
+    p.write({ file, id: file, entry: true })
+    p.end()
+
+    p.pipe(concat(out => {
+      expect(/export default/.test(out[0].source)).to.be.ok
+      done()
+    }))
+  })
+
+  it('force sourcemap', (done) => {
+    const file = path.join(__dirname, 'todo.riot')
+    const p = moduleDeps({ debug: true })
+
+    p.write({ transform: riotify})
+    p.write({ file, id: file, entry: true })
+    p.end()
+
+    p.pipe(concat(out => {
+      expect(/\/\/# sourceMappingURL=/.test(out[0].source), 'sourcemaps comment').to.be.ok
+      done()
+    }))
+  })
+
+  it('disable sourcemap', (done) => {
+    const file = path.join(__dirname, 'todo.riot')
+    const p = moduleDeps({ debug: false })
+
+    p.write({ transform: riotify })
+    p.write({ file, id: file, entry: true })
+    p.end()
+
+    p.pipe(concat(out => {
+      expect(/\/\/# sourceMappingURL=/.test(out[0].source), 'no sourcemaps comment').to.be.not.ok
+      done()
+    }))
+  })
 })
 
-test('compile', t => {
-  const file = path.join(__dirname, 'todo.tag')
-  const p = moduleDeps()
-
-  p.write({ transform: riotify, options: {} })
-  p.write({ file, id: file, entry: true })
-  p.end()
-
-  t.plan(6)
-  p.pipe(concat(out => {
-    t.is(out.length, 2, 'got two files as output')
-    t.ok(/riot\.js$/.test(out[0].id), 'out.0 is riot.js')
-    t.ok(/IS_DIRECTIVE/.test(out[0].source), 'riot.js')
-    t.ok(/todo\.tag$/.test(out[1].id), 'out.1 is todo.tag')
-    t.ok(/var riot = require\('riot'\);/.test(out[1].source), 'require riot')
-    t.ok(/riot\.tag2\(.*todo/.test(out[1].source), 'compiled compile.tag')
-  }))
-})
-
-test('compile-custom-ext', t => {
-  const file = path.join(__dirname, 'customext.html')
-  const p = moduleDeps()
-
-  p.write({ transform: riotify, options: {ext: 'html'} })
-  p.write({ file, id: file, entry: true })
-  p.end()
-
-  t.plan(6)
-  p.pipe(concat(out => {
-    t.is(out.length, 2, 'got two files as output')
-    t.ok(/riot\.js$/.test(out[0].id), 'out.0 is riot.js')
-    t.ok(/IS_DIRECTIVE/.test(out[0].source), 'riot.js')
-    t.ok(/customext\.html$/.test(out[1].id), 'out.1 is customext.html')
-    t.ok(/var riot = require\('riot'\);/.test(out[1].source), 'require riot')
-    t.ok(/riot.tag2\(.*customext/.test(out[1].source), 'compiled compile.tag')
-  }))
-})
-
-test('compile-custom-ext-ignore', t => {
-  const file = path.join(__dirname, 'todo.tag')
-  const p = moduleDeps()
-
-  p.write({ transform: riotify, options: {ext: 'html'} })
-  p.write({ file, id: file, entry: true })
-  p.end()
-
-  t.plan(3)
-  p.pipe(concat(out => {
-    t.ok(out[0], 'got output element')
-    t.ok(out[0].source.length, 'got output element with source')
-    t.ok(/^<todo>/.test(out[0].source), 'skipped todo.tag')
-  }))
-})
-
-test('module exports riot tag', t => {
-  const file = path.join(__dirname, 'todo.tag')
-  const p = moduleDeps()
-
-  p.write({ transform: riotify })
-  p.write({ file, id: file, entry: true })
-  p.end()
-
-  t.plan(1)
-  p.pipe(concat(out => {
-    t.ok(/module.exports = riot.tag2/.test(out[1].source), 'riot tag')
-  }))
-})
-
-test('force sourcemap', t => {
-  const file = path.join(__dirname, 'todo.tag')
-  const p = moduleDeps()
-
-  p.write({ transform: riotify, options: { sourcemap: true } })
-  p.write({ file, id: file, entry: true })
-  p.end()
-
-  t.plan(1)
-  p.pipe(concat(out => {
-    t.ok(/\/\/# sourceMappingURL=/.test(out[1].source), 'sourcemaps comment')
-  }))
-})
-
-test('disable sourcemap', t => {
-  const file = path.join(__dirname, 'todo.tag')
-  const p = moduleDeps()
-
-  p.write({ transform: riotify, options: { sourcemap: false } })
-  p.write({ file, id: file, entry: true })
-  p.end()
-
-  t.plan(1)
-  p.pipe(concat(out => {
-    t.notOk(/\/\/# sourceMappingURL=/.test(out[1].source), 'no sourcemaps comment')
-  }))
-})
 

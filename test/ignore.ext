@@ -1,7 +1,11 @@
 <todo>
-  <div each={ items }>
-    <h3>{ title }</h3>
+  <div each={ item in items }>
+    <h3>{ item.title }</h3>
   </div>
 
-  this.items = [ { title: 'First' }, { title: 'Second' } ]
+  <script>
+    export default {
+      items: [ { title: 'First' }, { title: 'Second' } ]
+    }
+  </script>
 </todo>
