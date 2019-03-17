@@ -3,7 +3,7 @@ Status](https://travis-ci.org/riot/riotify.svg)](https://travis-ci.org/riot/riot
 
 # riotify
 
-"riotify" is a browserify transformer for [riot](https://github.com/riot/riot) ".tag" files.
+"riotify" is a browserify transformer for [riot](https://github.com/riot/riot) ".riot" files.
 
 ## Installation
 
@@ -33,7 +33,7 @@ const {component} = require('riot')
 component(Todo)(document.getElementById('todo'))
 ```
 
-Example `todo.tag`:
+Example `todo.riot`:
 
 ```html
 <todo>
@@ -51,7 +51,7 @@ Example `todo.tag`:
 </todo>
 ```
 
-Note that your tag files actually need to have the extension ".tag".
+Note that your tag files actually need to have the extension ".riot".
 
 ### Compile Options
 
@@ -77,7 +77,7 @@ You can also configure it in package.json
 #### Available option
 
 - ext: `String`
-  - custom extension, you’re free to use any file extension for your tags (instead of default .tag):
+  - custom extension, you’re free to use any file extension for your tags (instead of default .riot):
 
 See more: https://github.com/riot/compiler
 
