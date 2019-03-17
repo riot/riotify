@@ -27,8 +27,8 @@ $ module-deps -t riotify app.js | browser-pack
 Example `app.js`:
 
 ```javascript
-import Todo from './todo.tag'
-import {component} from 'riot'
+const Todo = require('./todo.riot').default
+const {component} = require('riot')
 
 component(Todo)(document.getElementById('todo'))
 ```
