@@ -1,31 +1,31 @@
 {
   "name": "riotify",
-  "version": "4.0.0-beta.2",
+  "version": "4.0.0",
   "description": "browserify plugin for riot tag files",
   "main": "index.js",
   "files": [
     "index.js"
   ],
   "dependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.4.3",
     "through": "^2.3.8"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "concat-stream": "^2.0.0",
-    "eslint": "^5.15.2",
+    "eslint": "^5.16.0",
     "eslint-config-riot": "^2.0.0",
-    "mocha": "^6.0.2",
+    "mocha": "^6.1.4",
     "module-deps": "^6.2.0",
     "tape": "^4.10.1"
   },
   "peerDependencies": {
-    "@riotjs/compiler": "^4.0.0-beta.1"
+    "@riotjs/compiler": "^4.0.0"
   },
   "scripts": {
     "test": "npm run eslint && npx mocha test/*.js",
-    "prepare": "npm i --no-save @riotjs/compiler@4.0.0-beta.1",
+    "prepare": "npm i --no-save @riotjs/compiler",
     "eslint": "eslint index.js test/*.js",
     "prepublishOnly": "npm test"
   },

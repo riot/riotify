@@ -5,10 +5,14 @@ Status](https://travis-ci.org/riot/riotify.svg)](https://travis-ci.org/riot/riot
 
 "riotify" is a browserify transformer for [riot](https://github.com/riot/riot) ".riot" files.
 
+## Important
+
+If you are using Riot.js < 4.0.0 please check the [v3 branch](https://github.com/riot/riotify/tree/v3)
+
 ## Installation
 
 ```bash
-$ npm install riotify @riotjs/compiler
+$ npm install riotify @riotjs/compiler -D
 ```
 
 ## Usage

@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 4.0.0
+  * Use the latest @riotjs/compiler version
+
 ## 4.0.0-beta.2
   * Fixed the riot compiler `export default` converting them to commonjs
 
