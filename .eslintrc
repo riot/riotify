@@ -5,4 +5,4 @@ parserOptions:
   sourceType: 'module'
 
 rules:
-  fp/no-mutating-methods: false
+  fp/no-mutating-methods: off
