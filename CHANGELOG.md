@@ -1,5 +1,7 @@
 # CHANGELOG
 
+See https://github.com/riot/riotify/releases
+
 ## 4.0.0
   * Use the latest @riotjs/compiler version
 
