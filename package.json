@@ -1,6 +1,6 @@
 {
   "name": "riotify",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "browserify plugin for riot tag files",
   "main": "index.js",
   "files": [
