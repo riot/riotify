@@ -7,21 +7,20 @@
     "index.js"
   ],
   "dependencies": {
-    "@babel/core": "^7.12.7",
-    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
     "through": "^2.3.8"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
+    "chai": "^4.3.4",
     "concat-stream": "^2.0.0",
-    "eslint": "^7.14.0",
+    "eslint": "^7.30.0",
     "eslint-config-riot": "^3.0.0",
-    "mocha": "^8.2.1",
-    "module-deps": "^6.2.3",
-    "tape": "^5.0.1"
+    "mocha": "^9.0.2",
+    "module-deps": "^6.2.3"
   },
   "peerDependencies": {
-    "@riotjs/compiler": "^5.0.0"
+    "@riotjs/compiler": "^6.0.0"
   },
   "scripts": {
     "test": "npm run eslint && npx mocha test/*.js",

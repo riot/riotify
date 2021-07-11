@@ -1,7 +1,9 @@
-[![Build
-Status](https://travis-ci.org/riot/riotify.svg)](https://travis-ci.org/riot/riotify)
-
 # riotify
+
+[![Build Status][ci-image]][ci-url]
+[![NPM version][npm-version-image]][npm-url]
+[![NPM downloads][npm-downloads-image]][npm-url]
+[![MIT License][license-image]][license-url]
 
 "riotify" is a browserify transformer for [riot](https://github.com/riot/riot) ".riot" files.
 
@@ -114,3 +116,13 @@ $ npm test
 
 Originally written by Jan Henning Thorsen - jhthorsen@cpan.org<br/>
 Maintained by Gianluca Guarini - gianluca.guarini@gmail.com
+
+[ci-image]:https://img.shields.io/github/workflow/status/riot/riotify/test?style=flat-square
+[ci-url]:https://github.com/riot/riotify/actions
+
+[license-image]:https://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
+[license-url]:LICENSE
+
+[npm-version-image]:https://img.shields.io/npm/v/riotify.svg?style=flat-square
+[npm-downloads-image]:https://img.shields.io/npm/dm/riotify.svg?style=flat-square
+[npm-url]:https://npmjs.org/package/riotify
