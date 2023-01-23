@@ -117,7 +117,7 @@ $ npm test
 Originally written by Jan Henning Thorsen - jhthorsen@cpan.org<br/>
 Maintained by Gianluca Guarini - gianluca.guarini@gmail.com
 
-[ci-image]:https://img.shields.io/github/workflow/status/riot/riotify/test?style=flat-square
+[ci-image]:https://img.shields.io/github/actions/workflow/status/riot/riotify/test.yml?style=flat-square
 [ci-url]:https://github.com/riot/riotify/actions
 
 [license-image]:https://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
